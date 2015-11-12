@@ -37,7 +37,9 @@
                    `(let [num-errs# ~form
                           unwrapped# (->> (clojure.set/difference
                                            ;; Only consider annotations defined in our project - not libs etc.
-                                           (->> (keys @clojure.core.typed.current-impl/var-env)
+                                           (->> (keys (clojure.core.typed.current-impl/with-impl
+                                                        clojure.core.typed.current-impl/clojure
+                                                        (clojure.core.typed.current-impl/var-env)))
                                                 (filter #(contains? ~all-nsses (namespace %)))
                                                 (set))
                                            @types-to-schema.core/wrappers-created)
