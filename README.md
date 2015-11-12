@@ -11,6 +11,8 @@ Usage is the same as `lein test`, for example:
 `lein types-coverage :integration`
 `lein types-coverage only.this.test.namespace`
 
+This plugin uses the project's core.typed library, which needs to be core.typed >= 0.3.14
+
 ## License
 
 Copyright © 2015 
